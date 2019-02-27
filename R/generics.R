@@ -1,5 +1,5 @@
 # New generic functions for ff (and R.ff)
-# (c) 2007 Jens Oehlschl‰gel
+# (c) 2007 Jens Oehlschl√§gel
 # Licence: GPL2
 # Provided 'as is', use at your own risk
 # Created: 2007-08-24
@@ -160,7 +160,7 @@ vt <- function(x, ...)UseMethod("vt")
 #!   The object with a modified dimension
 #! }
 #! \author{
-#!   Jens Oehlschl‰gel
+#!   Jens Oehlschl√§gel
 #! }
 #! \seealso{
 #!   \code{\link{ffdf}}, \code{\link{dim.ffdf}}
@@ -188,7 +188,7 @@ vt <- function(x, ...)UseMethod("vt")
   d <- dim(x)
   if (is.null(d) || length(d)!=2)
     stop("not a two-dimensional array")
-  dim(x) <- c(as.integer(value), d[[2]])
+  dim(x) <- c(as.double(value), d[[2]])
   x
 }
 
