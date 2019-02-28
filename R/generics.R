@@ -188,7 +188,7 @@ vt <- function(x, ...)UseMethod("vt")
   d <- dim(x)
   if (is.null(d) || length(d)!=2)
     stop("not a two-dimensional array")
-  dim(x) <- c(as.double(value), d[[2]])
+  dim(x) <- c(as.double(value), as.double(d[[2]]))
   x
 }
 
