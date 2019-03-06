@@ -1,5 +1,5 @@
 # ff dataframe objects
-# (c) 2009 Jens Oehlschägel
+# (c) 2009 Jens Oehlsch?gel
 # Licence: GPL2
 # Provided 'as is', use at your own risk
 # Created: 2008-12-31
@@ -425,7 +425,7 @@ get_nvw <- function(x){
 #! and class 'ffdf' (NOTE that ffdf dows not inherit from ff)
 #! }
 #! \author{
-#! Jens Oehlschlägel
+#! Jens Oehlschl?gel
 #! }
 #! \note{
 #! Note that in theory, accessing a chunk of rows from a matrix with \code{dimorder=c(2,1)} should be faster than accessing across a bunch of vectors.
@@ -860,7 +860,7 @@ ffdf <- function(
 #!    physical selection \tab    \tab \code{x$i} \tab    \tab the selected \code{\link{ff}}            \cr
 #!   }
 #! }
-#! \author{ Jens Oehlschlägel }
+#! \author{ Jens Oehlschl?gel }
 #! \seealso{ \code{\link{ffdf}}, \code{\link[=[.data.frame]{Extract.data.frame}}, \code{\link{Extract.ff}}  }
 #! \examples{
 #!    d <- data.frame(a=letters, b=rev(letters), c=1:26)
@@ -1427,7 +1427,7 @@ ffdf <- function(
 #!   An object of type \code{\link{ffdf}}
 #! }
 #! \author{
-#!   Jens Oehlschlägel
+#!   Jens Oehlschl?gel
 #! }
 #! \seealso{
 #!   \code{\link{clone}}, \code{\link{ffdf}}
@@ -1520,7 +1520,7 @@ update.ffdf <- function(object, from, ...){
 #! \value{
 #!   logical scalar
 #! }
-#! \author{ Jens Oehlschlägel }
+#! \author{ Jens Oehlschl?gel }
 #! \seealso{  \code{\link{inherits}}, \code{\link{as.ffdf}}, \code{\link{is.ff}} }
 #! \examples{
 #!   is.ffdf(integer())
@@ -1565,7 +1565,7 @@ is.ffdf <- function(x)
 #!   'as.ffdf' returns an object of class \code{\link{ffdf}}, 'as.data.frame' returns an object of class \code{\link{data.frame}}
 #! }
 #! \author{
-#!   Jens Oehlschlägel
+#!   Jens Oehlschl?gel
 #! }
 #! \seealso{
 #!   \code{\link{is.ffdf}}, \code{\link{ffdf}}, \code{\link{data.frame}}
@@ -1668,7 +1668,7 @@ as.data.frame.ffdf <- function(x, ...)
 #! }
 #! \value{ integer number of columns}
 #! \author{
-#!   Jens Oehlschlägel
+#!   Jens Oehlschl?gel
 #! }
 #! \seealso{
 #!   \code{\link{dim.ffdf}}, \code{\link{length.ff}}, \code{\link{ffdf}}
@@ -1710,7 +1710,7 @@ length.ffdf <- function(x){
 #!   a character vector with one element for each column
 #! }
 #! \author{
-#!   Jens Oehlschlägel
+#!   Jens Oehlschl?gel
 #! }
 #! \seealso{ \code{\link{vmode}}, \code{\link{ffdf}} }
 #! \examples{
@@ -1762,7 +1762,7 @@ vmode.ffdf <- function(x, ...){
 #!   A list with \code{\link[bit]{ri}} indexes each representing one chunk
 #! }
 #! \author{
-#!   Jens Oehlschlägel
+#!   Jens Oehlschl?gel
 #! }
 #! \seealso{ \code{\link[bit]{chunk}}, \code{\link{ffdf}} }
 #! \examples{
@@ -1877,11 +1877,16 @@ dim.ffdf <- function(x){
   d <- dim(x)
   d1 <- d[[1]]
   d2 <- d[[2]]
-  value <- as.integer(value)
+  value <- as.double(value)
   v1 <- value[[1]]
   v2 <- value[[2]]
   if (is.na(v2) && v2!=d2)
     stop("you may only change the number of rows")
+
+  result = v1==d1
+  if(!(result %in% c(TRUE, FALSE))){
+    print(result)
+  }
   if (v1==d1)
     return(x)
 
@@ -1968,7 +1973,7 @@ dimorder.ffdf <- function(x, ...){
 #!   The assignment function return the changed ffdf object. The other functions return the expected.
 #! }
 #! \author{
-#!   Jens Oehlschlägel
+#!   Jens Oehlschl?gel
 #! }
 #! \seealso{
 #!   \code{\link{ffdf}}, \code{\link{dimnames.ff}}, \code{\link{rownames}}, \code{\link{colnames}}
@@ -2057,7 +2062,7 @@ dimnames.ffdf <- function(x){
 #!   \item{PhysicalLastCol}{integer identifying the last column of the corresponding physical element (1 if it is not a matrix)}
 #! }
 #! \author{
-#!   Jens Oehlschlägel
+#!   Jens Oehlschl?gel
 #! }
 #! \seealso{
 #!   \code{\link{ffdf}}, \code{\link[=physical.ff]{physical}}, \code{\link[=virtual.ff]{virtual}}, \code{\link[=vmode.ffdf]{vmode}}
@@ -2067,13 +2072,13 @@ dimnames.ffdf <- function(x){
 #!   y <- matrix(1:4, 2, 2)
 #!   z <- matrix(1:4, 2, 2)
 #!
-#!   message("Here the y matrix is first converted to single columns by data.frame, 
+#!   message("Here the y matrix is first converted to single columns by data.frame,
 #! then those columns become ff")
 #!   d <- as.ffdf(data.frame(x=x, y=y, z=I(z)))
 #!   physical(d)
 #!   virtual(d)
 #!
-#!   message("Here the y matrix is first converted to ff, and then stored still as matrix 
+#!   message("Here the y matrix is first converted to ff, and then stored still as matrix
 #! in the ffdf object (although virtually treated as columns of ffdf)")
 #!   d <- ffdf(x=as.ff(x), y=as.ff(y), z=I(as.ff(z)))
 #!   physical(d)
