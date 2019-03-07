@@ -66,3 +66,4 @@ Packaged: 2018-04-15 15:30:57 UTC; jo
 NeedsCompilation: yes
 Repository: CRAN
 Date/Publication: 2018-05-15 21:19:05 UTC
+RoxygenNote: 6.1.1

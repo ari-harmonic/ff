@@ -1,5 +1,5 @@
 # Namespace for ff (currently exporting (almost) everything in order to facilitate debugging)
-# (c) 2007 Jens Oehlschägel
+# (c) 2007 Jens Oehlsch?gel
 # Licence: GPL2
 # Created: 2007-08-24
 # Last changed: 2007-11-30
@@ -11,6 +11,13 @@ importFrom(stats, median, quantile, runif)
 import(bit)
 
 export(
+
+
+
+  rlepack.double,
+
+
+
 
 # == this is a complete list of R functions and metadata of this package sorted by filenames, non-exported functions are commented away ==
 
@@ -103,7 +110,7 @@ export(
 ,clength
 ,csum
 ,cmean
- 
+
 # -- ff.R - creating and manipulating ff objects: the core of package ff --
 #,ramphysical_includes
 #,ramvirtual_includes
@@ -176,10 +183,10 @@ export(
 ,vw.default
 ,dimnames.ff_array
 ,"dimnames<-.ff_array"
-,print.ff  
+,print.ff
 ,print.ff_vector
 ,print.ff_matrix
-,str.ff  
+,str.ff
 # xx todo print.ff_array via arrprint and print.arrprint
 ,ff
 ,update.ff
@@ -402,7 +409,7 @@ export(
 ,is.open.ffdf
 ,open.ffdf
 ,close.ffdf
-,delete.ffdf	
+,delete.ffdf
 ,print.ffdf
 ,str.ffdf
 
