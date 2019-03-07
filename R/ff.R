@@ -1027,7 +1027,7 @@ length.ff <- function(x)
   if (!is.null(virtual$Dim))
     stop("you can't set length of arrays, either remove the dim attribute or use 'dim<-' instead")
 
-  value <- as.integer(value)
+  value <- as.double(value)
   oldlen <- virtual$Length
 
   if (value==oldlen)
