@@ -1,5 +1,5 @@
 # hybrid index packing with run length encoding
-# (c) 2007 Jens Oehlschägel
+# (c) 2007 Jens Oehlsch?gel
 # Licence: GPL2
 # Provided 'as is', use at your own risk
 # Created: 2007-08-24
@@ -57,7 +57,7 @@
 #!   \item{ vw     }{ virtual window information \code{\link{vw}} }
 #!   \item{ NAs      }{ NULL or NA positions as returned by \code{\link[bit]{rlepack}} }
 #! }
-#! \author{ Jens Oehlschlägel }
+#! \author{ Jens Oehlschl?gel }
 #! \note{ \command{hi} defines the class structure, however usually \code{\link{as.hi}} is used to acturally Hybrid Index Preprocessing for \code{\link{ff}} }
 #! \seealso{ \code{\link{as.hi}} for coercion, \code{\link[bit]{rlepack}}, \code{\link[bit]{intrle}}, \code{\link{maxindex}}, \code{\link{poslength}} }
 #! \examples{
@@ -263,7 +263,7 @@ str.hi <- function(object, nest.lev=0, ...){
 #! \value{
 #!   undefined (and redefined as needed by \code{\link{as.hi.call}})
 #! }
-#! \author{ Jens Oehlschlägel }
+#! \author{ Jens Oehlschl?gel }
 #! \seealso{ \code{\link{hi}}, \code{\link{as.hi.call}} }
 #! \keyword{ IO }
 #! \keyword{ data }
@@ -433,7 +433,7 @@ hiparse <- function(x, envir, first=as.integer(NA), last=as.integer(NA)){
 #! \value{
 #!   an object of class \code{\link{hi}}
 #! }
-#! \author{ Jens Oehlschlägel }
+#! \author{ Jens Oehlschl?gel }
 #! \note{ Avoid changing the Hybrid Index representation, this might crash the \code{\link{[.ff}} subscripting. }
 #! \seealso{ \code{\link{hi}} for the Hybrid Index class, \code{\link{hiparse}} for parsing details, \code{\link{as.integer.hi}} for back-coercion, \code{\link{[.ff}} for ff subscripting }
 #! \examples{
@@ -474,7 +474,7 @@ hiparse <- function(x, envir, first=as.integer(NA), last=as.integer(NA)){
 #!   as.hi(substitute(c(1:5, 4:9, a)))
 #!   hi(c(1,4, 100),c(5,9, 200), by=c(1,1,20))
 #!
-#! message("two examples of index expression temporarily expanded to full length due to 
+#! message("two examples of index expression temporarily expanded to full length due to
 #! non-supported use of brackets '(' and mathematical operators '+' accepting token")
 #! message("example1: accepted token but aborted parsing because length>16")
 #!   as.hi(quote(1+(1:16)))
@@ -489,7 +489,7 @@ hiparse <- function(x, envir, first=as.integer(NA), last=as.integer(NA)){
 as.hi.hi <- function(x, ...){
   if (class(x$x)!="rlepack")
     class(x$x) <- "rlepack"
-  x    
+  x
 }
 
 
@@ -692,9 +692,9 @@ as.hi.integer <- function(
     if(is.null(dim))
       maxindex <- maxindex(x)
     else
-      maxindex <- as.integer(prod(dim))
+      maxindex <- as.double(prod(dim))
   }else{
-    maxindex <- as.integer(maxindex)
+    maxindex <- as.double(maxindex)
   }
 
   if (n){
@@ -806,7 +806,7 @@ as.hi.integer <- function(
       maxindex <- vw[1] + vw[2]
     }else{
       # NOTE that negative subscripts cannot be handled in a (vw && dim)-context or in a non-standard dimorder-context (enumerating all positive subscripts is not simply minindex..maxindex)
-      maxindex <- as.integer(prod(colSums(vw)))
+      maxindex <- as.double(prod(colSums(vw)))
     }
   }
 
@@ -932,7 +932,7 @@ as.hi.logical <- function(
 
 as.hi.double <- function(x, ...){
   #silent as usually, thus not: warning("converting doubles to integer in as.hi")
-  as.hi.integer(as.integer(x), ...)
+  as.hi.integer(as.double(x), ...)
 }
 
 # used for character subsetting
@@ -995,7 +995,7 @@ as.hi.character <- function(x
 #!   \command{as.character.hi} returns a character vector, see \code{\link{as.hi.character}}.
 #!   \command{as.matrix.hi} returns a matrix index, see \code{\link{as.hi.matrix}}.
 #! }
-#! \author{ Jens Oehlschlägel }
+#! \author{ Jens Oehlschl?gel }
 #! \seealso{ \code{\link{hi}}, \code{\link{as.hi}} }
 #! \examples{
 #!   x <- 1:6
@@ -1158,7 +1158,7 @@ as.character.hi <- function(
 #! \value{
 #!   an integer scalar
 #! }
-#! \author{ Jens Oehlschlägel }
+#! \author{ Jens Oehlschl?gel }
 #! \note{ duplicated negative indices are removed }
 #! \seealso{ \code{\link{hi}}, \code{\link{as.hi}}, \code{\link{length.ff}}, \code{\link{length}} }
 #! \examples{
@@ -1293,7 +1293,7 @@ if (!exists("poslength.logical"))
 #! \value{
 #!  undefined
 #! }
-#! \author{ Jens Oehlschlägel }
+#! \author{ Jens Oehlschl?gel }
 #! \seealso{ \code{\link{hi}}, \code{\link{as.hi}} }
 #! \keyword{ IO }
 #! \keyword{ data }
