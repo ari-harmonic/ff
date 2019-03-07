@@ -723,7 +723,7 @@ as.hi.integer <- function(
         maxindex <- prod(colSums(vw))
     }
 
-    isasc <- intisasc(x)
+    isasc <- is.numeric(x)
     if (is.na(isasc))
       stop("NAs in as.hi.integer")
     if (isasc){
