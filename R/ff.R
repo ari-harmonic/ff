@@ -4095,7 +4095,7 @@ swap.ff <- function(
 , pack = FALSE
 )
 {
-
+tryCatch(error = function(e){browser()},{
   vmode <- vmode(x)
   vw <- vw(x)
   fflen <- length(x)
@@ -4154,6 +4154,8 @@ swap.ff <- function(
   }
   setattr(ret, "class",attr(attr(x, "virtual"), "ramclass"))  #class(ret) <- attr(attr(x, "virtual"), "ramclass")
   .vset[[vmode]](ret)
+
+})
 
   return(ret)
 }
