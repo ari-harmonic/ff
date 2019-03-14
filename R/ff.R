@@ -4132,6 +4132,10 @@ tryCatch(error = function(e){browser()},{
       index$x$last   = as.integer(index$x$last )
       ret <- .Call("get_vector", .ffmode[vmode], attr(x, "physical"), index, nreturn, PACKAGE="ff")
 
+      if(is.na(ret)){
+        browser()
+      }
+
       if(ret != 0){
         browser()
       }
