@@ -4125,7 +4125,17 @@ swap.ff <- function(
       if (!is.null(ffnam))
         setattr(ret, "names", ffnam)  #names(ret) <- ffnam
     }else{
+
+
+      index$x$first  = as.integer(index$x$first )
+      index$x$dat    = as.integer(index$x$dat )
+      index$x$last   = as.integer(index$x$last )
       ret <- .Call("get_vector", .ffmode[vmode], attr(x, "physical"), index, nreturn, PACKAGE="ff")
+
+      if(ret != 0){
+        browser()
+      }
+
       ret <- unsort.hi(ret,index)
       if (!is.null(ffnam))
         setattr(ret, "names", ffnam[as.integer(index)])  #names(ret) <- ffnam[as.integer(index)]
